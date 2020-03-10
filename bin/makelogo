@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use SVG;
+
+my $logo = SVG->new(
+  width => 600,
+  height => 160,
+  style => {
+    'background-color' => 'black',
+  },
+);
+
+my $text = $logo->text(
+  x => 0,
+  y => 140,
+  stroke => 'white',
+  fill => 'white',
+  style => {
+    'font-family' => 'Courier Prime',
+    'font-size' => 200,
+    'font-weight' => 'bold',
+  },
+)->cdata('>code');
+
+print $logo->xmlify;
